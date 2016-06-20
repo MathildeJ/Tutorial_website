@@ -6,12 +6,7 @@
     <script type="text/javascript">(function(){window['_surfly_settings']=window['_surfly_settings']||{
         widgetkey:"b84defc4621441ecae5eb10bdec1cb5a",
         apiserver:"https://surfly.com/v2/",
-        cookie_transfer_enabled: "true",
-        cookie_trasfer_proxying: "false",
-        /*
-        add your custom options here
-        */
-        };var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src="//surfly.com/static/js/widget.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n(; })();
+        };var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src="//surfly.com/static/js/widget.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n); })();
     </script>
   </head>
   <body>
@@ -25,8 +20,14 @@
               <h4>Color</h4>
                <p><input type = "text" name = "Login" surfly_private></p>
              <div class="buy">
-             <input type="submit" value="BUY">
+             <button onclick="logSale()"><input type="submit" value="BUY"></button>
              </div>
+             <script>
+              function logSale(){
+                  Surfly.log("Sale complete");
+                  console.log("it worked!");
+               }
+              </script>
         </div>
      </form>
   </body>
