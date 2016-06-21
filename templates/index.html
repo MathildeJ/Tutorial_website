@@ -56,7 +56,7 @@ request_logs.onreadystatechange = function () {
 			var index_ag = element.indexOf("agent_id");
 			var index_created = element.indexOf("created");
 			var id = element.substring(index_ag+11, index_created-2);
-			if(!(id in agents)){
+			if(agents.indexOf(id)===-1){
 				agents.push(id);
 				count.push(1);
 			}else{
