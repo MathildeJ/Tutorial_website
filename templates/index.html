@@ -20,7 +20,7 @@
               <h4>Color</h4>
                <p><input type = "text" name = "Login" surfly_private></p>
              <div class="buy">
-             <button onclick="logSale()">Buy</button>
+             <button id="log_button" onclick="logSale()">Buy</button>
              </div>
              <script type="text/javascript">
               function logSale(){
@@ -32,8 +32,6 @@
 
 <button onclick="agentSales()">Agents</button>
 
-
-
 <script type="text/javascript">
 var request_logs = new XMLHttpRequest();
 
@@ -41,14 +39,6 @@ request_logs.open('GET', 'https://api.surfly.com/v2/logs/?api_key=33c092b9d4d642
 
 var agents = [];
 var count = [];
-
-function agentSale(agents,count){
-	return agents;
-}
-
-function agentSales(){
-	alert(agentSale());
-}
 
 
 request_logs.onreadystatechange = function () {
@@ -79,13 +69,25 @@ request_logs.onreadystatechange = function () {
 		}
 	}
     }
-    agentSale(agents,count);
+    console.log(agents);
+    console.log(count);
   }
 };
 
 request_logs.send();
 </script>
 
+<script type="text/javascript">
+window.addEventListener('surflycontrolchange', function (event) {
+    var element = document.getElementById("log_button");
+    if (event.leaderHasControl) {
+        element.disabled = true;
+        } else {
+            element.disabled = false;
+        }
+    });
+});
+</script>
   </body>
 </html>
 
