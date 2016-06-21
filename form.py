@@ -6,7 +6,7 @@ def index():
    return render_template('index.html')
 
 @app.route('/agents')
-def index():
+def agents():
    return render_template('agents.html')
 
 
