@@ -48,6 +48,10 @@ request.onreadystatechange = function () {
 	var index = element.indexOf("details");
 	element.substring(index+10, element.length-3)
 	if(element.substring(index+10, element.length-3)=="Sale complete"){
+		var index_ag = element.indexOf("agent_id");
+		var index_created = element.indexOf("created");
+		var id = element.substring(index_ag+11, index_created-2);
+		console.log(id);
 		count +=1;
 	}
 	console.log(count);
