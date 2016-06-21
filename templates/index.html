@@ -43,8 +43,8 @@ request.onreadystatechange = function () {
     var arr = agents.split('{');
     for(var i=0;i<arr.length;i++){
 	var agent = arr[i];
-	var index = arr.indexOf("agent_id");
-	var index_name = element.indexOf("agent_name");
+	var index = agent.indexOf("agent_id");
+	var index_name = agent.indexOf("agent_name");
     	res.push(agent.substring(index+10,index_name-2));
     }    
     console.log(res);
