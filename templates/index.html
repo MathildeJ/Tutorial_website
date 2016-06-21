@@ -34,13 +34,21 @@
 <script type="text/javascript">
 var request = new XMLHttpRequest();
 
-request.open('GET', 'https://api.surfly.com/v2/agents/?api_key=a021371cdd3c4256a1ed79e3d18fd87b');
+request.open('GET', 'https://api.surfly.com/v2/agents/?api_key=b84defc4621441ecae5eb10bdec1cb5a');
 
-request.onreadystatechange = function () {
+request.onreadystatechange = function () { 
+  var res = [];
   if (this.readyState === 4) {
     var agents = this.responseText;
     var arr = agents.split('{');
-    console.log(arr);
+    for(var i=0;i<arr.length;i++){
+	var agent = arr[i];
+	var index = arr.indexOf("agent_id");
+	var index_name = element.indexOf("agent_name");
+    	res.push(agent.substring(index+10,index_name-2);
+    }    
+    console.log(res);
+    return res;
   }
 };
 
@@ -50,7 +58,7 @@ request.send();
 <script type="text/javascript">
 var request = new XMLHttpRequest();
 
-request.open('GET', 'https://api.surfly.com/v2/logs/?api_key=a021371cdd3c4256a1ed79e3d18fd87b');
+request.open('GET', 'https://api.surfly.com/v2/logs/?api_key=b84defc4621441ecae5eb10bdec1cb5a');
 var count = 0;
 request.onreadystatechange = function () {
   if (this.readyState === 4) {
