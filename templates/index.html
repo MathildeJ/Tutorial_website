@@ -24,8 +24,11 @@
              </div>
              <script type="text/javascript">
               function logSale(){
-                  Surfly.log("Sale complete");
+                  var obj = Surfly.log("Sale complete");
                   console.log("it worked!");
+		  JSON.stringify(obj);
+		  var agent_id = obj[1];
+		  console.log(agent_id);
                }
               </script>
         </div>
