@@ -8,9 +8,6 @@ apiserver:"https://surfly.com/v2/",
 add your custom options here
 */
 };var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src="//surfly.com/static/js/widget.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n); })();</script>
-    <title>Agents</title>
-  </head>
-  <body>
 
 <script type="text/javascript">
 var obj = Surfly.log("Sale complete");
@@ -25,6 +22,12 @@ window.onload = function(){
 	document.getElementById("count").innerHTML=count;
 }
 </script>
+
+    <title>Agents</title>
+  </head>
+  <body>
+
+
 
   <table style="width:100%">
   <tr>

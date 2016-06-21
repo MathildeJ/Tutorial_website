@@ -24,12 +24,102 @@
              </div>
              <script type="text/javascript">
               function logSale(){
-                  Surfly.log("Sale complete");
-                  console.log("it worked!");
+                  Surfly.log("Sale completed");
                }
               </script>
         </div>
      </form>
+<a href="{{ url_for('agents') }}"> Agents </a>
+
+<script type="text/javascript">
+/*
+var request = new XMLHttpRequest();
+
+request.open('GET', 'https://api.surfly.com/v2/agents/?api_key=33c092b9d4d6425e817f5140447e43da');
+
+var res = [];
+
+request.onreadystatechange = function () { 
+  if (this.readyState === 4) {
+    var agents = this.responseText;
+    console.log(agents);
+    var arr = agents.split('{');
+    for(var i=0;i<arr.length;i++){
+	var agent = arr[i];
+	var index = agent.indexOf("agent_id");
+	var index_name = agent.indexOf("agent_name");
+    	res.push(agent.substring(index+10,index_name-2));
+    }    
+    console.log(res);
+  }
+};
+*/
+var request = new XMLHttpRequest();
+
+request.open('GET', 'https://api.surfly.com/v2/agents/?api_key=33c092b9d4d6425e817f5140447e43da');
+
+request.onreadystatechange = function () {
+  if (this.readyState === 4) {
+    console.log('Status:', this.status);
+    console.log('Headers:', this.getAllResponseHeaders());
+    console.log('Body:', this.responseText);
+  }
+};
+
+request.send();
+
+/*
+var agentss = [];
+for(var j =0; j<res.length;j++){
+	console.log(res[j]);
+	agentss.push([res[j],0]);
+}
+console.log(agentss);
+*/
+</script>
+
+<script type="text/javascript">
+var request_logs = new XMLHttpRequest();
+
+request_logs.open('GET', 'https://api.surfly.com/v2/logs/?api_key=33c092b9d4d6425e817f5140447e43da');
+
+request_logs.onreadystatechange = function () {
+  if (this.readyState === 4) {
+    var str = this.responseText;
+    var array = str.split('{');
+
+    for(var i =0; i<array.length;i++){
+	var element = array[i];
+	var index = element.indexOf("details");
+	var line = element.substring(index+10, element.length-3);
+	line = line.replace('\/"',"");
+	if(window.__surfly){
+		if(line=="Sale completed"){
+			var index_ag = element.indexOf("agent_id");
+			var index_created = element.indexOf("created");
+			var id = element.substring(index_ag+11, index_created-2);
+			for(var j =0; j<agentss.length;j++){
+				if(agentss[j][0]==id){
+					agentss[j][1] += 1;
+				}
+			}
+			console.log(agentss);
+			//count +=1;
+			//console.log(count);
+		}
+	}
+    }
+    /*
+    if (this.responseText.details=="Sale complete){
+	console.log("sale registered");
+    }
+  */
+  }
+};
+
+request_logs.send();
+</script>
+
   </body>
   
 
