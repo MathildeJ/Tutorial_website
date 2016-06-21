@@ -41,7 +41,7 @@ request.onreadystatechange = function () {
   if (this.readyState === 4) {
     var str = this.responseText;
     var pos = str.indexOf("details");
-    var array = str.split(',');
+    var array = str.split('{');
     console.log(array);
     /*
     if (this.responseText.details=="Sale complete"){
