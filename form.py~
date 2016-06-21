@@ -5,8 +5,4 @@ app = Flask(__name__)
 def index():
    return render_template('index.html')
 
-@app.route('/agents')
-def index():
-   return render_template('agents.html')
-
 
