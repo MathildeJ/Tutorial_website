@@ -26,9 +26,6 @@
               function logSale(){
                   Surfly.log("Sales complete");
                }
-	      function agentSale(agents,count){
-                  alert(agents);
-               }
               </script>
         </div>
      </form>
@@ -44,6 +41,10 @@ request_logs.open('GET', 'https://api.surfly.com/v2/logs/?api_key=33c092b9d4d642
 
 var agents = [];
 var count = [];
+
+function agentSale(agents,count){
+	alert(agents+count);
+}
 
 request_logs.onreadystatechange = function () {
   if (this.readyState === 4) {
