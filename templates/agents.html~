@@ -1,23 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+<script type="text/javascript">(function(){window['_surfly_settings']=window['_surfly_settings']||{
+widgetkey:"dd402bb4940b4cf3a855aaa371d11419",
+apiserver:"https://surfly.com/v2/",
+/*
+add your custom options here
+*/
+};var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src="//surfly.com/static/js/widget.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n); })();</script>
     <title>Agents</title>
   </head>
   <body>
+
 <script type="text/javascript">
-Surfly.log("Sale completed");
-
+var obj = Surfly.log("Sale complete");
+var agent_id = obj.agent_id;
+var details = obj.details;
+if(details=="Sale complete"){
+	var count = 0;
+	count +=1;
+}
+window.onload = function(){
+	document.getElementById("agent_id").innerHTML=agent_id;
+	document.getElementById("count").innerHTML=count;
+}
 </script>
-
 
   <table style="width:100%">
   <tr>
-    <td>agent_id</td>
-    <td>50</td>
-  </tr>
-  <tr>
-    <td>Eve</td>
-    <td>Jackson</td> 
-    <td>94</td>
+    <td><a id="agent_id"></a></td>
+    <td><a id="count"></a></td>
   </tr>
   </table>
