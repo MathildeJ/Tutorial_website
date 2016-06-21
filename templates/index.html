@@ -4,7 +4,7 @@
     <title>Example Website for Surfly</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     <script type="text/javascript">(function(){window['_surfly_settings']=window['_surfly_settings']||{
-        widgetkey:"dd402bb4940b4cf3a855aaa371d11419",
+        widgetkey:"b84defc4621441ecae5eb10bdec1cb5a",
         apiserver:"https://surfly.com/v2/",
         };var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src="//surfly.com/static/js/widget.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n); })();
     </script>
@@ -32,10 +32,10 @@
 <a href="{{ url_for('agents') }}"> Agents </a>
 
 <script type="text/javascript">
-/*
+
 var request = new XMLHttpRequest();
 
-request.open('GET', 'https://api.surfly.com/v2/agents/?api_key=33c092b9d4d6425e817f5140447e43da');
+request.open('GET', 'https://api.surfly.com/v2/agents/?api_key=ec006650588b4726ac397ab5e56c033a');
 
 var res = [];
 
@@ -53,10 +53,10 @@ request.onreadystatechange = function () {
     console.log(res);
   }
 };
-*/
+
 var request = new XMLHttpRequest();
 
-request.open('GET', 'https://api.surfly.com/v2/agents/?api_key=33c092b9d4d6425e817f5140447e43da');
+request.open('GET', 'https://api.surfly.com/v2/agents/?api_key=ec006650588b4726ac397ab5e56c033a');
 
 request.onreadystatechange = function () {
   if (this.readyState === 4) {
@@ -81,7 +81,7 @@ console.log(agentss);
 <script type="text/javascript">
 var request_logs = new XMLHttpRequest();
 
-request_logs.open('GET', 'https://api.surfly.com/v2/logs/?api_key=33c092b9d4d6425e817f5140447e43da');
+request_logs.open('GET', 'https://api.surfly.com/v2/logs/?api_key=ec006650588b4726ac397ab5e56c033a');
 
 request_logs.onreadystatechange = function () {
   if (this.readyState === 4) {
