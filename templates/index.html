@@ -35,7 +35,7 @@
 <script type="text/javascript">
 var request = new XMLHttpRequest();
 
-request.open('GET', 'https://api.surfly.com/v2/logs/?api_key=a021371cdd3c4256a1ed79e3d18fd87b');
+request.open('GET', 'https://api.surfly.com/v2/logs/?api_key=a021371cdd3c4256a1ed79e3d18fd87b&active_session=true');
 
 request.onreadystatechange = function () {
   if (this.readyState === 4) {
@@ -43,6 +43,11 @@ request.onreadystatechange = function () {
     var pos = str.indexOf("details");
     var array = str.split('{');
     console.log(array);
+    for(var i =0; i<str.length;i++){
+	var element = str[i];
+	var index = element.indexOf("details");
+	console.log(element.substring(index+7, element.length));
+    }
     /*
     if (this.responseText.details=="Sale complete"){
 	console.log("sale registered");
