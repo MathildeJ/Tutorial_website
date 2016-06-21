@@ -72,9 +72,22 @@ request_logs.onreadystatechange = function () {
   }
 };
 
-window.alert(agents);
-
 request_logs.send();
+</script>
+
+<script type="text/javascript">
+var surflyOrigin = 'https://surfly.com';
+window.addEventListener("message", function(e){
+  if (e.origin === surflyOrigin) {
+    var data = JSON.parse(e.data);
+    if (data.surfly.type === 'session_ended') {
+      window.alert(agents);
+    }
+  } else {
+    console.log(e);
+  }
+}, false);
+
 </script>
 
   </body>
