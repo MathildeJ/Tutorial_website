@@ -32,6 +32,7 @@
 <a href="{{ url_for('agents') }}"> Agents </a>
 
 <script type="text/javascript">
+/*
 var request = new XMLHttpRequest();
 
 request.open('GET', 'https://api.surfly.com/v2/agents/?api_key=33c092b9d4d6425e817f5140447e43da');
@@ -52,8 +53,21 @@ request.onreadystatechange = function () {
     console.log(res);
   }
 };
+*/
+var request = new XMLHttpRequest();
+
+request.open('GET', 'https://api.surfly.com/v2/agents/?api_key=33c092b9d4d6425e817f5140447e43da');
+
+request.onreadystatechange = function () {
+  if (this.readyState === 4) {
+    console.log('Status:', this.status);
+    console.log('Headers:', this.getAllResponseHeaders());
+    console.log('Body:', this.responseText);
+  }
+};
 
 request.send();
+
 /*
 var agentss = [];
 for(var j =0; j<res.length;j++){
