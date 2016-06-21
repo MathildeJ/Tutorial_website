@@ -41,6 +41,7 @@ var res = [];
 request.onreadystatechange = function () { 
   if (this.readyState === 4) {
     var agents = this.responseText;
+    console.log(agents);
     var arr = agents.split('{');
     for(var i=0;i<arr.length;i++){
 	var agent = arr[i];
