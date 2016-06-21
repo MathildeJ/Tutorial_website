@@ -26,10 +26,14 @@
               function logSale(){
                   Surfly.log("Sales complete");
                }
+	      function agentSale(agents,count){
+                  alert(agents);
+               }
               </script>
         </div>
      </form>
-<a href="{{ url_for('agents') }}"> Agents </a>
+
+<button onclick="agentSales()">Agents</button>
 
 
 
@@ -69,17 +73,7 @@ request_logs.onreadystatechange = function () {
 		}
 	}
     }
-	var surflyOrigin = 'https://surfly.com';
-	window.addEventListener("message", function(e){
-	  if (e.origin === surflyOrigin) {
-	    var data = JSON.parse(e.data);
-	    if (data.surfly.type === 'session_ended') {
-	      alert(agents);
-	    }
-	  } else {
-	    console.log(e);
-	  }
-	}, false);
+    agentSales(agents,count);
   }
 };
 
