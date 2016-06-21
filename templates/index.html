@@ -56,9 +56,9 @@ request.onreadystatechange = function () {
 request.send();
 
 var agentss = [];
-for(agent in res){
-	console.log(agent);
-	agentss.push([agent,0]);
+for(var j =0; j<res.length;j++){
+	console.log(res[j]);
+	agentss.push([res[j],0]);
 }
 console.log(agentss);
 </script>
