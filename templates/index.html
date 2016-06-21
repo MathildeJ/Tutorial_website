@@ -30,7 +30,7 @@
         </div>
      </form>
 
-<button onclick="agentSale()">Agents</button>
+<button onclick="agentSales()">Agents</button>
 
 
 
@@ -43,8 +43,13 @@ var agents = [];
 var count = [];
 
 function agentSale(agents,count){
-	alert(agents+count);
+	return agents;
 }
+
+function agentSales(){
+	alert(agentSale());
+}
+
 
 request_logs.onreadystatechange = function () {
   if (this.readyState === 4) {
