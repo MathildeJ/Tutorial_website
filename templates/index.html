@@ -75,9 +75,9 @@ request_logs.onreadystatechange = function () {
 			var id = element.substring(index_ag+11, index_created-2);
 			for(var j =0; j<res.length;j++){
 				if(res[j][0]==id){
-					agent[j][1] += 1;
+					res[j][1] += 1;
 				}
-			console.log(agent[j][1]);
+			console.log(res[j][1]);
 			}
 			//count +=1;
 			//console.log(count);
