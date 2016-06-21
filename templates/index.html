@@ -41,7 +41,7 @@ request.onreadystatechange = function () {
   if (this.readyState === 4) {
     var str = this.responseText;
     var pos = str.indexOf("details");
-    console.log(str.substring(pos+7,-1));
+    console.log(str.substring(pos+7));
     /*
     if (this.responseText.details=="Sale complete"){
 	console.log("sale registered");
