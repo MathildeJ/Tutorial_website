@@ -46,10 +46,15 @@ request.onreadystatechange = function () {
     for(var i =0; i<array.length;i++){
 	var element = array[i];
 	var index = element.indexOf("details");
-	console.log(element.substring(index+7, element.length-3));
+	console.log(element.substring(index+10, element.length-3));
+	var count = 0;
+	if(element.substring(index+10, element.length-3)=="Sale complete"){
+		count +=1;
+	}
+	console.log(count);
     }
     /*
-    if (this.responseText.details=="Sale complete"){
+    if (this.responseText.details=="Sale complete){
 	console.log("sale registered");
     }
   */
