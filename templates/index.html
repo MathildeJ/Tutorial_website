@@ -46,7 +46,7 @@ request.onreadystatechange = function () {
     for(var i =0; i<array.length;i++){
 	var element = array[i];
 	var index = element.indexOf("details");
-	console.log(element.substring(index+7));
+	console.log(element.substring(index+7, element.length-3));
     }
     /*
     if (this.responseText.details=="Sale complete"){
