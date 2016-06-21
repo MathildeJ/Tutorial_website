@@ -40,7 +40,6 @@ var count = 0;
 request.onreadystatechange = function () {
   if (this.readyState === 4) {
     var str = this.responseText;
-    var pos = str.indexOf("details");
     var array = str.split('{');
 
     for(var i =0; i<array.length;i++){
@@ -53,8 +52,9 @@ request.onreadystatechange = function () {
 		var id = element.substring(index_ag+11, index_created-2);
 		console.log(id);
 		count +=1;
+		console.log(count);
 	}
-	console.log(count);
+
     }
     /*
     if (this.responseText.details=="Sale complete){
