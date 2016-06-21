@@ -39,9 +39,6 @@ request.open('GET', 'https://api.surfly.com/v2/logs/?api_key=a021371cdd3c4256a1e
 
 request.onreadystatechange = function () {
   if (this.readyState === 4) {
-    console.log('Status:', this.status);
-    console.log('Headers:', this.getAllResponseHeaders());
-    console.log('Body:', this.responseText);
     if(this.responseText.details=="Sale complete"){
 	console.log("sale registered");
     }
