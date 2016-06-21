@@ -42,9 +42,9 @@ request.onreadystatechange = function () {
     var str = this.responseText;
     var pos = str.indexOf("details");
     var array = str.split('{');
-    console.log(array);
-    for(var i =0; i<str.length;i++){
-	var element = str[i];
+
+    for(var i =0; i<array.length;i++){
+	var element = array[i];
 	var index = element.indexOf("details");
 	console.log(element.substring(index+7, index+20));
     }
