@@ -25,7 +25,6 @@
              <script type="text/javascript">
               function logSale(){
                   Surfly.log("Sale complete");
-                  console.log("it worked!");
                }
               </script>
         </div>
@@ -35,7 +34,7 @@
 <script type="text/javascript">
 var request = new XMLHttpRequest();
 
-request.open('GET', 'https://api.surfly.com/v2/logs/?api_key=a021371cdd3c4256a1ed79e3d18fd87b&active_session=true');
+request.open('GET', 'https://api.surfly.com/v2/logs/?api_key=a021371cdd3c4256a1ed79e3d18fd87b');
 var count = 0;
 request.onreadystatechange = function () {
   if (this.readyState === 4) {
