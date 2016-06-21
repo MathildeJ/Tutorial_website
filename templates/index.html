@@ -35,6 +35,7 @@
 var request = new XMLHttpRequest();
 
 request.open('GET', 'https://api.surfly.com/v2/agents/?api_key=a021371cdd3c4256a1ed79e3d18fd87b');
+
 var res = [];
 request.onreadystatechange = function () { 
 
@@ -53,13 +54,13 @@ request.onreadystatechange = function () {
 };
 
 request.send();
-</script>
 
-<script type="text/javascript">
 var agentss = [];
 for(agent in res){
+	console.log(agent);
 	agentss.push([agent,0]);
 }
+console.log(agentss);
 </script>
 
 <script type="text/javascript">
