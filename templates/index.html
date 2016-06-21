@@ -24,7 +24,7 @@
              </div>
              <script type="text/javascript">
               function logSale(){
-                  Surfly.log("Sale completed");
+                  Surfly.log("Sales complete");
                }
               </script>
         </div>
@@ -52,7 +52,7 @@ request_logs.onreadystatechange = function () {
 	var line = element.substring(index+10, element.length-3);
 	line = line.replace('\/"',"");
 	if(window.__surfly){
-		if(line=="Sale completed"){
+		if(line=="Sales complete"){
 			var index_ag = element.indexOf("agent_id");
 			var index_created = element.indexOf("created");
 			var id = element.substring(index_ag+11, index_created-2);
