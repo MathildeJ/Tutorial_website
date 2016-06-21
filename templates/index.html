@@ -46,7 +46,8 @@ request.onreadystatechange = function () {
 	var index = element.indexOf("details");
 	console.log(element.substring(index+10, element.length-3));
 	var line = element.substring(index+10, element.length-3);
-	line = line.replace(/"/g, "");
+	line = line.replace('/"',"");
+	console.log(line);
 	if(window.__surfly){
 		if(line=="Sale complete"){
 			var index_ag = element.indexOf("agent_id");
