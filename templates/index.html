@@ -30,15 +30,15 @@
         </div>
      </form>
 <a href="{{ url_for('agents') }}"> Agents </a>
-<!--
+
 <script type="text/javascript">
 var request = new XMLHttpRequest();
 
 request.open('GET', 'https://api.surfly.com/v2/agents/?api_key=33c092b9d4d6425e817f5140447e43da');
 
 var res = [];
-request.onreadystatechange = function () { 
 
+request.onreadystatechange = function () { 
   if (this.readyState === 4) {
     var agents = this.responseText;
     var arr = agents.split('{');
@@ -49,20 +49,20 @@ request.onreadystatechange = function () {
     	res.push(agent.substring(index+10,index_name-2));
     }    
     console.log(res);
-    return res;
   }
 };
 
 request.send();
-
+/*
 var agentss = [];
 for(var j =0; j<res.length;j++){
 	console.log(res[j]);
 	agentss.push([res[j],0]);
 }
 console.log(agentss);
+*/
 </script>
--->
+
 <script type="text/javascript">
 var request_logs = new XMLHttpRequest();
 
