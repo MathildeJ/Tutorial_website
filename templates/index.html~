@@ -20,9 +20,9 @@
               <h4>Color</h4>
                <p><input type = "text" name = "Login" surfly_private></p>
              <div class="buy">
-             <button onclick="logSale()">Buy</button>
+             <button onclick="logSale()"><input type="submit" value="BUY"></button>
              </div>
-             <script type="text/javascript">
+             <script>
               function logSale(){
                   Surfly.log("Sale complete");
                   console.log("it worked!");
