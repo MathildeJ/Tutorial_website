@@ -20,9 +20,9 @@
               <h4>Color</h4>
                <p><input type = "text" name = "Login" surfly_private></p>
              <div class="buy">
-             <button onclick="logSale()"><input type="submit" value="BUY"></button>
+             <button onclick="logSale()">Buy</button>
              </div>
-             <script>
+             <script type="text/javascript">
               function logSale(){
                   Surfly.log("Sale complete");
                   console.log("it worked!");
@@ -31,5 +31,22 @@
         </div>
      </form>
   </body>
+  
+<script type="text/javascript">  
+  var request = new XMLHttpRequest();
+
+  request.open('GET', 'https://api.surfly.com/v2/logs/?api_key=jj34bd2db21c46d2875508b982968d26');
+  
+  request.onreadystatechange = function () {
+  if (this.readyState === 4) {
+    console.log('Status:', this.status);
+    console.log('Headers:', this.getAllResponseHeaders());
+    console.log('Body:', this.responseText);
+  }
+  };
+
+request.send();
+</script>
 </html>
+
 
