@@ -78,7 +78,7 @@ request_logs.send();
 </script>
 
 <script type="text/javascript">
-window.addEventListener('surfly', function (event) {
+window.addEventListener('surflycontrolchange', function (event) {
     var element = document.getElementById("log_button");
     if (event.leaderHasControl) {
         element.disabled = true;
@@ -88,16 +88,6 @@ window.addEventListener('surfly', function (event) {
 });
 </script>
 
-window.addEventListener('surflycontrolchange', function (event) {
-    var elements = document.querySelectorAll('[disable-on-follower-control]');
-    Array.prototype.forEach.call(elements, function (element) {
-        if (event.leaderHasControl) {
-            element.disabled = false;
-        } else {
-            element.disabled = true;
-        }
-    });
-});
   </body>
 </html>
 
