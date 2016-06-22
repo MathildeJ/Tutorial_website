@@ -62,7 +62,6 @@ function get_info_session(session_id){
 	request_info.onreadystatechange = function () {
 	  if (this.readyState === 4) {
 	    console.log('Body:', this.responseText);
-	    console.log('<%= Request.UserHostAddress %>');
 	  }
 	};
 
@@ -108,10 +107,16 @@ request_logs.onreadystatechange = function () {
 		}
 	}
     }
-    console.log(agents);
-    console.log(count);
+    //console.log(agents);
+    //console.log(count);
+    get_agents_count(agents,count);
   }
 };
+
+function get_agents_count(a,c){
+	console.log(a);
+	console.log(c);
+}
 
 request_logs.send();
 </script>
