@@ -7,9 +7,23 @@ apiserver:"https://surfly.com/v2/",
 };var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src="//surfly.com/static/js/widget.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n); })();</script>
 
 
-    <title>Agents</title>
+  <title>Agents</title>
+  <div id="list_a"></div>
+  <div id="list_c"></div>
+
   </head>
+
   <body>
+  <script type="text/javascript">
+  var agents = sessionStorage.getItem('list_ag');
+  //var arr_ag = agents.split(",");
+  var count = sessionStorage.getItem('list_co');
+  //var arr_count = count.split(",");
+  document.getElementById("list_a").innerHTML=agents;
+  document.getElementById("list_c").innerHTML=count;
+  </script>
 
-
+  
+  </body>
+</html
 
