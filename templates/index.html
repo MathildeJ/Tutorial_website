@@ -31,8 +31,10 @@
         </div>
      </form>
 
-<button onclick="agentSales()">Agents</button>
-
+<button id="agent_button">Agents</button>
+<script>
+document.getElementById("agent_button").addEventListener("click", agentSales);
+</script>
 <script type="text/javascript">
 var request = new XMLHttpRequest();
 
@@ -114,8 +116,11 @@ request_logs.onreadystatechange = function () {
 };
 
 function get_agents_count(a,c){
-	console.log(a);
-	console.log(c);
+	agentSales(a,c);
+}
+
+function agentSales(a,c){
+	document.getElementById("agent_button").innerHTML = a;
 }
 
 request_logs.send();
