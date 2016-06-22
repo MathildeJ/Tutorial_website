@@ -88,9 +88,9 @@ request_logs.send();
 window.addEventListener('surflycontrolchange', function (event) {
     var element = document.getElementById("log_button");
     if (event.leaderHasControl) {
-    	element.disabled = true;
+    	element.disabled = false;
     } else {
-        element.disabled = false;
+        element.disabled = true;
     }
 });
 </script>
