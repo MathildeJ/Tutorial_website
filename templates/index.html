@@ -33,16 +33,19 @@
 <button onclick="agentSales()">Agents</button>
 
 <script type="text/javascript">
-window.addEventListener('surflycontrolchange', function (event) {
-    var element = document.getElementById("log_button");
-    console.log(element);
-    if (event.leaderHasControl) {
-        element.disabled = false;
-    } else {
-        element.disabled = true;
-    }
-});
-{"command": "drawing_settings", "settings": {"mode": "permanent", "color": "black"}}
+// surflyOrigin can be different if you are using on-premise solution
+var surflyOrigin = 'https://surfly.com';
+window.addEventListener("surlychangecontrol", function(e){
+  var button = document.getElementById("log_button");
+  if (e.origin === surflyOrigin) {
+    var data = JSON.parse(e.data);
+    if (data.surfly.type === 'viewer_joined') {
+      button.disabled = true;
+    }
+  } else {
+    console.log(e);
+  }
+}, false);
 </script>
 
 <script type="text/javascript">
