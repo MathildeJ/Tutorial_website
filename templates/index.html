@@ -24,6 +24,7 @@
              </div>
              <script type="text/javascript">
               function logSale(){
+		  console.log(window.location.href);
                   Surfly.log("Sales complete");
                }
               </script>
@@ -32,12 +33,6 @@
 
 <button onclick="agentSales()">Agents</button>
 
-<script type="text/javascript">
-window.addEventListener("surlychangecontrol", function(){
-  var button = document.getElementById("log_button");
-  button.disabled = true;
-}, false);
-</script>
 
 <script type="text/javascript">
 var request_logs = new XMLHttpRequest();
