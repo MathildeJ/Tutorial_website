@@ -15,27 +15,12 @@ apiserver:"https://surfly.com/v2/",
 
   <body>
   <script type="text/javascript">
-  function makeTableHTML(myArray) {
-    var result = "<table border=1>";
-    for(var i=0; i<myArray.length; i++) {
-        result += "<tr>";
-        for(var j=0; j<myArray[i].length; j++){
-            result += "<td>"+myArray[i][j]+"</td>";
-        }
-        result += "</tr>";
-    }
-    result += "</table>";
-
-    return result;
-  }
   var agents = sessionStorage.getItem('list_ag');
-  console.log(agents.split(","));
+  //var arr_ag = agents.split(",");
   var count = sessionStorage.getItem('list_co');
-  makeTableHTML([agents.split(","),count.split(",")]);
-  /*
+  //var arr_count = count.split(",");
   document.getElementById("list_a").innerHTML=agents;
   document.getElementById("list_c").innerHTML=count;
-  */
   </script>
 
   
