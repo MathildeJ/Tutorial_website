@@ -31,7 +31,7 @@
         </div>
      </form>
 
-<button id="agents_button">Agents</button>
+<button id="agents_button" onclick="retrieve_log()">Agents</button>
 
 
 <script type="text/javascript">
@@ -71,14 +71,14 @@ request_logs.onreadystatechange = function () {
 		}
 	}
     }
-    console.log(agents);
-    console.log(count);
-    //get_agents_count(agents,count);
+    function retrieve_log(){
+    alert(get_agents_count(count, agents);
+    }
   }
 };
 
 function get_agents_count(a,c){
-    document.createTextNode(a.join());
+    return "a and c";
 }
 
 request_logs.send();
