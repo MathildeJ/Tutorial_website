@@ -50,6 +50,7 @@ apiserver:"https://surfly.com/v2/",
      <div class="col-sm-4">
        <div class="panel panel-success">
          <div class="panel-heading">
+           <div id="agents_table"></div>
            <h4 class="panel-title">Agents</h4>
          </div>
          <div class="panel-body">
@@ -84,17 +85,19 @@ apiserver:"https://surfly.com/v2/",
   });
 
   table.appendChild(tableBody);
-  document.body.appendChild(table);
+  //document.body.appendChild(table);
+  return table;
   }
   var agents = sessionStorage.getItem('list_ag');
   var arr_ag = agents.split(",");
   var count = sessionStorage.getItem('list_co');
   var arr_count = count.split(",");
   var arr = [arr_ag, arr_count];
-  console.log(arr);
-  createTable(arr);
+  var table = createTable(arr);
+
   document.getElementById("list_a").innerHTML=agents;
   document.getElementById("list_c").innerHTML=count;
+  document.getElementById("agents_table").innerHTML=table;
   </script>
 
   
