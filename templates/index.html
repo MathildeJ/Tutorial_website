@@ -4,7 +4,7 @@
     <title>Example Website for Surfly</title>
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-    
+
     <script type="text/javascript">(function(){window['_surfly_settings']=window['_surfly_settings']||{
         widgetkey:"dd402bb4940b4cf3a855aaa371d11419",
         apiserver:"https://surfly.com/v2/",
@@ -33,7 +33,8 @@
         <div id="navbar" class="navbar-collapse collapse">
            <ul class="nav navbar-nav">
               <li><a href="{{ url_for('index') }}">Home</a></li>
-              <li class="active"><a href="{{ url_for('index') }}">Order form</a></li>
+              <li class="active"><a href="{{ url_for('index') }}" id="agents_button">Order form</a></li>
+              <li><a href="{{ url_for('agents') }}">Agents</a></li>
            </ul>
         </div>
      </div>
@@ -68,56 +69,49 @@
              </tr>
              <tr>
                 <td>
-                   <button type="button" class="btn btn-lg btn-primary" id="log_button" onclick="logSale()">Buy</button>
+                   <button type="button" class="btn btn-lg btn-default" id="log_button" onclick="logSale()">Buy</button>
                    <script type="text/javascript">
                     function logSale(){
                     Surfly.log("Sales complete");
                     }
                    </script>
                 </td>
-              </tr> 
-              <tr>
-                <td>
-                  <button type="button" class="btn btn-lg btn-success" id="agents_button"> <a href="{{ url_for('agents') }}"> Agents </a> </button> 
-                </td>
-              </tr>
-              </table>
-        </div>
-     </form>
-
+             </tr> 
+          </table>
+       </div>
+    </form>
 
     <script type="text/javascript">
     var request_logs = new XMLHttpRequest();
 
     request_logs.open('GET', 'https://api.surfly.com/v2/logs/?api_key=33c092b9d4d6425e817f5140447e43da');
 
-    var agents = [];// array containing agents who've made a sale
-    var count = [];// array storing the number of sales for each agent
+    var agents = [];
+    var count = [];
 
     request_logs.onreadystatechange = function () {
   	if (this.readyState === 4) {
-    		var str_logs = this.responseText;// get the logs
-    		var array_logs = str_logs.split('{'); //split the logs  
-	
-        // we go through all the logs and for each of them, we check what's in the "details" section
+    		var str_logs = this.responseText;
+    		var array_logs = str_logs.split('{');
+
     	for(var i =0; i<array_logs.length;i++){
-		var element = array_logs[i]; 
+		var element = array_logs[i];
 		var index = element.indexOf("details");
 		var details = element.substring(index+10, element.length-3);
 		details = details.replace('\/"',"");
-		// if we are in a Surfly session and the details are "Sales complete" (log sent when a sale is made) then we get the agent's id
+
 		if(window.__surfly){
 			if(details=="Sales complete"){
 				var index_ag = element.indexOf("agent_id");
 				var index_created = element.indexOf("created");
 				var id = element.substring(index_ag+11, index_created-2);
-				// if the agent's id is not in the array then we add it with a sales count of 1
+
 				if(agents.indexOf(id)===-1){
 					agents.push(id);
 					count.push(1);
-				// otherwise, we increment by 1 the number of sales made by the agent
+
 				}else{
- 					for(var j=0; j<agents.length;j++){
+					for(var j=0; j<agents.length;j++){
 						if(agents[j]===id){
 							count[j]+=1;
 					}
@@ -126,29 +120,14 @@
 		}
 	}
     }
-    // we store the arrays to be able to get them from the agents page
-    sessionStorage.setItem('list_ag', agents.join());
-    sessionStorage.setItem('list_co', count.join());
+    console.log(agents);
+    console.log(count);
   }
 };
 request_logs.send();
 </script>
 
-<script type="text/javascript">
-// when the leader is in control then the 'buy' button is clickable otherwise, it is disabled
-window.addEventListener('surflycontrolchange', function (event) {
-    var element = document.getElementById("log_button");
-    if (event.leaderHasControl) {
-    	element.disabled = false;
-    } else {
-        element.disabled = true;
-    }
-});
-</script>
-  <div id="list_agents"></div>
-  <div id="list_count"></div>
   </body>
-
 </html>
 
 
