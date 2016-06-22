@@ -10,30 +10,80 @@
         apiserver:"https://surfly.com/v2/",
         };var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src="//surfly.com/static/js/widget.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n); })();
     </script>
+
+    <!-- Bootstrap -->
+       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='theme.css') }}">
+       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap_changed.min.css') }}">
+       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-theme.min.css') }}">
   </head>
 
   <body>
-    <form>
-         <h2>Car Order Form</h2>
-        <div class="payment_form"> 
-              <h4>Build</h4>
-               <p><input type = "text" name = "Login" surfly_private></p>
-              <h4>Amount</h4>
-               <p><input type = "text" name = "Login" surfly_private></p>
-              <h4>Color</h4>
-               <p><input type = "text" name = "Login" surfly_private></p>
-             <div class="buy">
-             <button id="log_button" onclick="logSale()">Buy</button>
-             </div>
-             <script type="text/javascript">
-              function logSale(){
-                  Surfly.log("Sales complete");
-               }
-              </script>
-        </div>
-     </form>
 
-    <button id="agents_button">Agents</button>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+       <div class="container">
+          <div class="navbar-header">
+             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+             </button>
+             <a class="navbar-brand" href="{{ url_for('agents') }}">Example Website</a>
+           </div>
+        <div id="navbar" class="navbar-collapse collapse">
+           <ul class="nav navbar-nav">
+              <li><a href="{{ url_for('index') }}">Home</a></li>
+              <li class="active"><a href="{{ url_for('index') }}">Order form</a></li>
+           </ul>
+        </div>
+     </div>
+   </nav>
+   <div class"container theme-showcase" role="main">
+   <div class="jumbotron">
+   <h1>Order Form</h1>
+   </div>
+
+    <form>
+      <div class="page-header">
+         <h2>Car Order Form</h2>
+      </div>
+      <table class="center_form">
+        <tr>
+          <td>
+             <h4>Build</h4>
+              <p><input type = "text" name = "Login"></p>
+           </td>
+         </tr>
+          <tr>
+            <td>
+              <h4>Amount</h4>
+                <p><input type = "text" name = "Login"></p>
+             </td>
+           </tr>
+           <tr>
+              <td>
+                <h4>Color</h4>
+                  <p><input type = "text" name = "Login"></p>
+               </td>
+             </tr>
+             <tr>
+                <td>
+                   <button type="button" class="btn btn-lg btn-primary" id="log_button" onclick="logSale()">Buy</button>
+                   <script type="text/javascript">
+                    function logSale(){
+                    Surfly.log("Sales complete");
+                    }
+                   </script>
+                </td>
+              </tr> 
+              <tr>
+                <td>
+                  <button type="button" class="btn btn-lg btn-success" id="agents_button">Agents</button> 
+                </td>
+              </tr>
+              </table>
+        </div>
+    </form>
 
     <script type="text/javascript">
     var request_logs = new XMLHttpRequest();
