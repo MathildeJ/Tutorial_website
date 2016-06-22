@@ -40,7 +40,14 @@ request.open('GET', 'https://api.surfly.com/v2/sessions/?api_key=33c092b9d4d6425
 
 request.onreadystatechange = function () {
   if (this.readyState === 4) {
-    console.log('Body:', this.responseText);
+    var str = this.responseText;
+    var array = str.split('{');
+    for(var i =0; i<array.length;i++){
+	var element = array[i];
+	var index = element.indexOf("session_id");
+	var index_agent_id = element.indexOf("agent_id");
+	var session_id = element.substring(index+10, index_agent_id-3);
+	console.log(session_id);
   }
 };
 
