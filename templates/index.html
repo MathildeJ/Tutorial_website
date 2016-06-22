@@ -76,12 +76,16 @@
     }
     console.log(agents);
     console.log(count);
+    document.getElementById("list_agents").innerHTML=agents.join();
+    document.getElementById("list_count").innerHTML=count.join();
   }
 };
 request_logs.send();
 </script>
-
+  <div id="list_agents"></div>
+  <div id="list_count"></dib>
   </body>
+
 </html>
 
 
