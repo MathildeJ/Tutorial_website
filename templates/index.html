@@ -4,7 +4,7 @@
     <title>Example Website for Surfly</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     <script type="text/javascript">(function(){window['_surfly_settings']=window['_surfly_settings']||{
-        widgetkey:"b84defc4621441ecae5eb10bdec1cb5a",
+        widgetkey:"dd402bb4940b4cf3a855aaa371d11419",
         apiserver:"https://surfly.com/v2/",
         };var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src="//surfly.com/static/js/widget.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n); })();
     </script>
@@ -20,20 +20,73 @@
               <h4>Color</h4>
                <p><input type = "text" name = "Login" surfly_private></p>
              <div class="buy">
-             <button onclick="logSale()">Buy</button>
+             <button id="log_button" onclick="logSale()">Buy</button>
              </div>
              <script type="text/javascript">
               function logSale(){
+		  console.log(window.location.href);
                   Surfly.log("Sales complete");
                }
               </script>
         </div>
      </form>
-<a href="{{ url_for('agents') }}"> Agents </a>
 
-</body>
-  
+<button id="agents_button">Agents</button>
 
+
+<script type="text/javascript">
+var request_logs = new XMLHttpRequest();
+
+request_logs.open('GET', 'https://api.surfly.com/v2/logs/?api_key=33c092b9d4d6425e817f5140447e43da');
+
+var agents = [];
+var count = [];
+
+
+request_logs.onreadystatechange = function () {
+  if (this.readyState === 4) {
+    var str = this.responseText;
+    var array = str.split('{');
+
+    for(var i =0; i<array.length;i++){
+	var element = array[i];
+	var index = element.indexOf("details");
+	var line = element.substring(index+10, element.length-3);
+	line = line.replace('\/"',"");
+	if(window.__surfly){
+		if(line=="Sales complete"){
+			var index_ag = element.indexOf("agent_id");
+			var index_created = element.indexOf("created");
+			var id = element.substring(index_ag+11, index_created-2);
+			if(agents.indexOf(id)===-1){
+				agents.push(id);
+				count.push(1);
+			}else{
+				for(var j=0; j<agents.length;j++){
+					if(agents[j]==id){
+						count[j]+=1;
+					}
+				}
+			}
+		}
+	}
+    }
+    console.log(agents);
+    console.log(count);
+    //get_agents_count(agents,count);
+  }
+};
+
+function get_agents_count(a,c){
+    document.createTextNode(a.join());
+}
+
+request_logs.send();
+</script>
+
+
+
+  </body>
 </html>
 
 
