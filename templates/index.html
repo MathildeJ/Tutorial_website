@@ -47,14 +47,14 @@ request.onreadystatechange = function () {
 	var index = element.indexOf("session_id");
 	var index_agent_id = element.indexOf("agent_id");
 	var session_id = element.substring(index+13, index_agent_id-3);
-	console.log(session_id);
-        //get_info_session(session_id);
+	//console.log(session_id);
+        get_info_session(session_id);
     }
   }
 };
 
 request.send();
-/*
+
 function get_info_session(session_id){
 	var request_info = new XMLHttpRequest();
 	console.log(session_id);
@@ -67,7 +67,7 @@ function get_info_session(session_id){
 
 	request_info.send();
 }
-*/
+
 </script>
 
 <script type="text/javascript">
