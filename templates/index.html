@@ -38,6 +38,8 @@ var request = new XMLHttpRequest();
 
 request.open('GET', 'https://api.surfly.com/v2/sessions/?api_key=33c092b9d4d6425e817f5140447e43da&active_session=true');
 
+var session_id;
+
 request.onreadystatechange = function () {
   if (this.readyState === 4) {
     var str = this.responseText;
@@ -46,13 +48,25 @@ request.onreadystatechange = function () {
 	var element = array[i];
 	var index = element.indexOf("session_id");
 	var index_agent_id = element.indexOf("agent_id");
-	var session_id = element.substring(index+10, index_agent_id-3);
+	session_id = element.substring(index+13, index_agent_id-3);
 	console.log(session_id);
     }
   }
 };
 
 request.send();
+
+var request_info = new XMLHttpRequest();
+console.log(session_id);
+request_info.open('GET', 'https://api.surfly.com/v2/sessions/'+session_id+'/?api_key=33c092b9d4d6425e817f5140447e43da');
+
+request_info.onreadystatechange = function () {
+  if (this.readyState === 4) {
+    console.log('Body:', this.responseText);
+  }
+};
+
+request_info.send();
 </script>
 
 <script type="text/javascript">
