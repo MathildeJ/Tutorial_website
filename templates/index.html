@@ -31,7 +31,7 @@
         </div>
      </form>
 
-
+<button id="agents_button">Agents</button>
 
 <script type="text/javascript">
 var request = new XMLHttpRequest();
@@ -114,17 +114,7 @@ request_logs.onreadystatechange = function () {
 };
 
 function get_agents_count(a,c){
-    var $testButton = $('<input/>').attr({
-    type: 'button',
-    name: 'btn1',
-    value: 'TestButton',
-    id: 'testButton',
-    style: 'position:absolute; top:50px;left:100px; zindex:2'
-});
-$('body').append($testButton);
-$(document).on("click", "#testButton", function() {
-    alert(a+c);
-}
+    document.write(a.toString());
 }
 
 request_logs.send();
