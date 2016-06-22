@@ -36,10 +36,10 @@ apiserver:"https://surfly.com/v2/",
   }
 
   var agents = sessionStorage.getItem('list_ag');
-  //var arr_ag = agents.split(",");
+  var arr_ag = agents.split(",");
   var count = sessionStorage.getItem('list_co');
-  //var arr_count = count.split(",");
-  createTable([["jfep","vgre"],["nf","fjoez"]]);
+  var arr_count = count.split(",");
+  createTable([arr_ag,arr_count]);
   document.getElementById("list_a").innerHTML=agents;
   document.getElementById("list_c").innerHTML=count;
   </script>
