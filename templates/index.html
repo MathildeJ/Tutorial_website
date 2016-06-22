@@ -33,6 +33,19 @@
 
 <button onclick="agentSales()">Agents</button>
 
+<script type="text/javascript">
+var request = new XMLHttpRequest();
+
+request.open('GET', 'https://api.surfly.com/v2/sessions/?api_key=33c092b9d4d6425e817f5140447e43da&active_session=true');
+
+request.onreadystatechange = function () {
+  if (this.readyState === 4) {
+    console.log('Body:', this.responseText);
+  }
+};
+
+request.send();
+</script>
 
 <script type="text/javascript">
 var request_logs = new XMLHttpRequest();
