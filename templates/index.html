@@ -33,6 +33,18 @@
 <button onclick="agentSales()">Agents</button>
 
 <script type="text/javascript">
+window.addEventListener('surflycontrolchange', function (event) {
+    var element = document.getElementById("log_button");
+    console.log(element);
+    if (event.leaderHasControl) {
+        element.disabled = false;
+    } else {
+        element.disabled = true;
+    }
+});
+</script>
+
+<script type="text/javascript">
 var request_logs = new XMLHttpRequest();
 
 request_logs.open('GET', 'https://api.surfly.com/v2/logs/?api_key=33c092b9d4d6425e817f5140447e43da');
@@ -77,17 +89,7 @@ request_logs.onreadystatechange = function () {
 request_logs.send();
 </script>
 
-<script type="text/javascript">
-window.addEventListener('surflycontrolchange', function (event) {
-    var element = document.getElementById("log_button");
-    console.log(element);
-    if (event.leaderHasControl) {
-        element.disabled = true;
-    } else {
-        element.disabled = false;
-    }
-});
-</script>
+
 
   </body>
 </html>
