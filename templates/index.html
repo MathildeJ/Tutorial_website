@@ -47,7 +47,7 @@ request.onreadystatechange = function () {
 	var index = element.indexOf("session_id");
 	var index_agent_id = element.indexOf("agent_id");
 	var session_id = element.substring(index+13, index_agent_id-3);
-	//console.log(session_id);
+	console.log(session_id);
         get_info_session(session_id);
     }
   }
@@ -58,7 +58,7 @@ request.send();
 function get_info_session(session_id){
 	var request_info = new XMLHttpRequest();
 	console.log(session_id);
-	request_info.open('GET', 'https://api.surfly.com/v2/sessions/'+session_id+'/?api_key=33c092b9d4d6425e817f5140447e43da');
+	request_info.open('GET', 'https://api.surfly.com/v2/sessions/'+session_id.toString()+'/?api_key=33c092b9d4d6425e817f5140447e43da');
 	request_info.onreadystatechange = function () {
 	  if (this.readyState === 4) {
 	    console.log('Body:', this.responseText);
