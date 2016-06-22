@@ -40,9 +40,6 @@ window.addEventListener("surlychangecontrol", function(e){
   if (e.origin === surflyOrigin) {
     var data = JSON.parse(e.data);
     button.disabled = true;
-    }
-  } else {
-    console.log(e);
   }
 }, false);
 </script>
