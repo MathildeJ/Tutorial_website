@@ -34,17 +34,23 @@
 <button id="agents_button">Agents</button>
 
 <script type="text/javascript">
-window.addEventListener('control', function (event) {
-    var elements = [document.getElementById("log_button")];
-    console.log(event.leaderHasControl);
-    Array.prototype.forEach.call(elements, function (element) {
-        if (event.leaderHasControl) {
-            element.disabled = true;
-        } else {
-            element.disabled = false;
-        }
-    });
-});
+// put your custom page address here
+var popupUrl = "{{ url_for('agents') }}";
+// surflyOrigin can be different if you are using on-premise solution
+var surflyOrigin = 'https://surfly.com';
+window.addEventListener("message", function(e){
+  if (e.origin === surflyOrigin) {
+    var data = JSON.parse(e.data);
+    if (data.surfly.type === 'session_ended') {
+      var popup = document.createElement('iframe');
+      popup.style.cssText = "display:block;position:fixed;height:80%;width:80%;top:10%;left:10%;z-index:99999;background-color:white;";
+      popup.src = popupUrl;
+      document.body.appendChild(popup);
+    }
+  } else {
+    console.log(e);
+  }
+}, false);
 /*var request = new XMLHttpRequest();
 
 request.open('GET', 'https://api.surfly.com/v2/sessions/?api_key=33c092b9d4d6425e817f5140447e43da&active_session=true');
