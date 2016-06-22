@@ -6,14 +6,67 @@ widgetkey:"dd402bb4940b4cf3a855aaa371d11419",
 apiserver:"https://surfly.com/v2/",
 };var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src="//surfly.com/static/js/widget.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n); })();</script>
 
-
   <title>Agents</title>
-  <div id="list_a"></div>
-  <div id="list_c"></div>
+
+
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='theme.css') }}">
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap_changed.min.css') }}">
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-theme.min.css') }}">
 
   </head>
 
   <body>
+ 
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+       <div class="container">
+          <div class="navbar-header">
+             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+             </button>
+             <a class="navbar-brand" href="{{ url_for('agents') }}">Example Website</a>
+           </div>
+        <div id="navbar" class="navbar-collapse collapse">
+           <ul class="nav navbar-nav">
+              <li><a href="{{ url_for('index') }}">Home</a></li>
+              <li><a href="{{ url_for('index') }}" id="agents_button">Order form</a></li>
+              <li class="active"><a href="{{ url_for('agents') }}">Agents</a></li>
+           </ul>
+        </div>
+     </div>
+   </nav>
+
+   <div class="jumbotron">
+     <h1>Agents</h1>
+   </div>
+
+
+   <div class="page-header">
+     <h2>Completed Sales</h2>
+   </div>
+   <div class="row">
+     <div class="col-sm-4">
+       <div class="panel panel-success">
+         <div class="panel-heading">
+           <h4 class="panel-title">Agents</h4>
+         </div>
+         <div class="panel-body">
+           <div id="list_a"></div>
+         </div>
+        </div>
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            <h4 class="panel-title">Sales count</h4>
+          </div>
+          <div class="panel-body">
+           <div id="list_c"></div>
+          </div>
+        </div>
+      <div>
+
+
   <script type="text/javascript">
   var agents = sessionStorage.getItem('list_ag');
   var arr_ag = agents.split(",");
