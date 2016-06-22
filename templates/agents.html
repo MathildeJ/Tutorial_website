@@ -7,15 +7,20 @@ apiserver:"https://surfly.com/v2/",
 };var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src="//surfly.com/static/js/widget.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n); })();</script>
 
 
-    <title>Agents</title>
+  <title>Agents</title>
+  <div id="list_a"></div>
+  <div id="list_c"></div>
+
   </head>
 
   <body>
-  <script>
-  console.log(sessionStorage.getItem('list_ag'));
+  <script type="text/javascript">
+  var agents = sessionStorage.getItem('list_ag');
+  var count = sessionStorage.getItem('list_co');
+  document.getElementById("list_a").innerHTML=agents;
   </script>
-  <div id="list_agents"></div>
-  <div id="list_count"></dib>
+
+  
   </body>
-</html>
+</html
 

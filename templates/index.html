@@ -77,12 +77,13 @@
     document.getElementById("list_agents").innerHTML=agents.join();
     sessionStorage.setItem('list_ag', agents.join());
     document.getElementById("list_count").innerHTML=count.join();
+    sessionStorage.setItem('list_co', count.join());
   }
 };
 request_logs.send();
 </script>
   <div id="list_agents"></div>
-  <div id="list_count"></dib>
+  <div id="list_count"></div>
   </body>
 
 </html>
