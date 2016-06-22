@@ -86,8 +86,8 @@
 
     request_logs.open('GET', 'https://api.surfly.com/v2/logs/?api_key=33c092b9d4d6425e817f5140447e43da');
 
-    var agents = ["Agent ID"];// array containing agents who've made a sale
-    var count = ["Number of sales"];// array storing the number of sales for each agent
+    var agents = [];// array containing agents who've made a sale
+    var count = [];// array storing the number of sales for each agent
 
     request_logs.onreadystatechange = function () {
         if (this.readyState === 4) {
