@@ -36,6 +36,7 @@
 <script type="text/javascript">
 window.addEventListener('surflycontrolchange', function (event) {
     var elements = [document.getElementById("log_button")];
+    console.log(event.to);
     Array.prototype.forEach.call(elements, function (element) {
         if (event.leaderHasControl) {
             element.disabled = true;
