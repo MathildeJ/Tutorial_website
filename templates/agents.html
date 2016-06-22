@@ -85,15 +85,14 @@ apiserver:"https://surfly.com/v2/",
   });
 
   table.appendChild(tableBody);
-  //document.body.appendChild(table);
-  return table;
+  document.body.appendChild(table);
   }
   var agents = sessionStorage.getItem('list_ag');
   var arr_ag = agents.split(",");
   var count = sessionStorage.getItem('list_co');
   var arr_count = count.split(",");
   var arr = [arr_ag, arr_count];
-  var table = createTable(arr);
+  createTable(arr);
 
   document.getElementById("list_a").innerHTML=agents;
   document.getElementById("list_c").innerHTML=count;
