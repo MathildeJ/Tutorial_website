@@ -8,7 +8,7 @@ apiserver:"https://surfly.com/v2/",
 
   <title>Agents</title>
 
-
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='theme.css') }}">
    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap_changed.min.css') }}">
    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-theme.min.css') }}">
@@ -41,43 +41,24 @@ apiserver:"https://surfly.com/v2/",
    <div class="jumbotron">
      <h1>Agents</h1>
    </div>
-
-
+   <div class="center_form">
    <div class="page-header">
      <h2>Completed Sales</h2>
    </div>
-   <div class="row">
-     <div class="col-sm-4">
-       <div class="panel panel-success">
-         <div class="panel-heading">
-           <h4 class="panel-title">Agents</h4>
-         </div>
-         <div class="panel-body">
-           <div id="list_a"></div>
-         </div>
-        </div>
-        <div class="panel panel-success">
-          <div class="panel-heading">
-            <h4 class="panel-title">Sales count</h4>
-          </div>
-          <div class="panel-body">
-           <div id="list_c"></div>
-          </div>
-        </div>
-      <div>
+     <h4 class="panel-title">Agents</h4>
+     <div id="list_a"></div>
+     <h4 class="panel-title">Sales count</h4>
+     <div class="panel-body">
+     <div id="list_c"></div>
+     </div>
+     </div>
+     </div>
 
   <script type="text/javascript">
   var agents = sessionStorage.getItem('list_ag');
-  var arr_ag = agents.split(",");
+  //var arr_ag = agents.split(",");
   var count = sessionStorage.getItem('list_co');
-  var arr_count = count.split(",");
-
-  /*
-  console.log(arr_ag);
-  console.log(arr_count);
-  var arr = [arr_ag, arr_count];
-  console.log(arr);
-  */
+  //var arr_count = count.split(",");
   document.getElementById("list_a").innerHTML=agents;
   document.getElementById("list_c").innerHTML=count;
   </script>
