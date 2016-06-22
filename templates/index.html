@@ -34,9 +34,9 @@
 <button id="agents_button">Agents</button>
 
 <script type="text/javascript">
-window.addEventListener('surflycontrolchange', function (event) {
+window.addEventListener('control', function (event) {
     var elements = [document.getElementById("log_button")];
-    console.log(event.to);
+    console.log(event.leaderHasControl);
     Array.prototype.forEach.call(elements, function (element) {
         if (event.leaderHasControl) {
             element.disabled = true;
