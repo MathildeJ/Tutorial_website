@@ -33,14 +33,9 @@
 <button onclick="agentSales()">Agents</button>
 
 <script type="text/javascript">
-// surflyOrigin can be different if you are using on-premise solution
-var surflyOrigin = 'https://surfly.com';
-window.addEventListener("surlychangecontrol", function(e){
+window.addEventListener("surlychangecontrol", function(){
   var button = document.getElementById("log_button");
-  if (e.origin === surflyOrigin) {
-    var data = JSON.parse(e.data);
-    button.disabled = true;
-  }
+  button.disabled = true;
 }, false);
 </script>
 
