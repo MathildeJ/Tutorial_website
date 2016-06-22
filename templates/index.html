@@ -39,8 +39,7 @@ window.addEventListener("surlychangecontrol", function(e){
   var button = document.getElementById("log_button");
   if (e.origin === surflyOrigin) {
     var data = JSON.parse(e.data);
-    if (data.surfly.type === 'viewer_joined') {
-      button.disabled = true;
+    button.disabled = true;
     }
   } else {
     console.log(e);
