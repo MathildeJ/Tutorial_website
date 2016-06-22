@@ -34,7 +34,17 @@
 <button id="agents_button">Agents</button>
 
 <script type="text/javascript">
-var request = new XMLHttpRequest();
+window.addEventListener('surflycontrolchange', function (event) {
+    var elements = [document.getElementById("log_button")];
+    Array.prototype.forEach.call(elements, function (element) {
+        if (event.leaderHasControl) {
+            element.disabled = true;
+        } else {
+            element.disabled = false;
+        }
+    });
+});
+/*var request = new XMLHttpRequest();
 
 request.open('GET', 'https://api.surfly.com/v2/sessions/?api_key=33c092b9d4d6425e817f5140447e43da&active_session=true');
 
@@ -67,7 +77,7 @@ function get_info_session(session_id){
 
 	request_info.send();
 }
-
+*/
 </script>
 
 <script type="text/javascript">
@@ -107,9 +117,9 @@ request_logs.onreadystatechange = function () {
 		}
 	}
     }
-    //console.log(agents);
-    //console.log(count);
-    get_agents_count(agents,count);
+    console.log(agents);
+    console.log(count);
+    //get_agents_count(agents,count);
   }
 };
 
