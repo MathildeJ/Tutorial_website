@@ -114,7 +114,8 @@ request_logs.onreadystatechange = function () {
 };
 
 function get_agents_count(a,c){
-    document.write(a.toString());
+    var btn = document.createElement("BUTTON");
+    btn.appendChild(document.createTextNode(a.join()+c.join()));
 }
 
 request_logs.send();
