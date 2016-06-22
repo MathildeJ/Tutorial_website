@@ -62,6 +62,7 @@ function get_info_session(session_id){
 	request_info.onreadystatechange = function () {
 	  if (this.readyState === 4) {
 	    console.log('Body:', this.responseText);
+	    console.log('<%= Request.UserHostAddress %>');
 	  }
 	};
 
