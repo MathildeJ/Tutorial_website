@@ -15,8 +15,29 @@ apiserver:"https://surfly.com/v2/",
 
   <body>
   <script type="text/javascript">
+  function createTable(tableData) {
+	  var table = document.createElement('table');
+	  var tableBody = document.createElement('tbody');
+
+	  tableData.forEach(function(rowData) {
+	    var row = document.createElement('tr');
+
+	    rowData.forEach(function(cellData) {
+	      var cell = document.createElement('td');
+	      cell.appendChild(document.createTextNode(cellData));
+	      row.appendChild(cell);
+	    });
+
+	    tableBody.appendChild(row);
+	  });
+
+	  table.appendChild(tableBody);
+	  document.body.appendChild(table);
+  }
   var agents = sessionStorage.getItem('list_ag');
   var count = sessionStorage.getItem('list_co');
+  createTable([agents,count]);
+  /*
   document.getElementById("list_a").innerHTML=agents;
   document.getElementById("list_c").innerHTML=count;
   </script>
