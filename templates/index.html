@@ -74,8 +74,8 @@
 		}
 	}
     }
-    sessionStorage.setItem('list_ag', agents);
-    sessionStorage.setItem('list_co', count);
+    sessionStorage.setItem('list_ag', agents.join());
+    sessionStorage.setItem('list_co', count.join());
   }
 };
 request_logs.send();

@@ -29,9 +29,9 @@ apiserver:"https://surfly.com/v2/",
     return result;
   }
   var agents = sessionStorage.getItem('list_ag');
-  console.log(agents);
+  console.log(agents.split(","));
   var count = sessionStorage.getItem('list_co');
-  makeTableHTML([agents,count]);
+  makeTableHTML([agents.split(","),count.split(",")]);
   /*
   document.getElementById("list_a").innerHTML=agents;
   document.getElementById("list_c").innerHTML=count;
