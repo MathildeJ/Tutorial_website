@@ -8,7 +8,7 @@ apiserver:"https://surfly.com/v2/",
 
   <title>Agents</title>
 
-
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='theme.css') }}">
    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap_changed.min.css') }}">
    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-theme.min.css') }}">
@@ -41,43 +41,59 @@ apiserver:"https://surfly.com/v2/",
    <div class="jumbotron">
      <h1>Agents</h1>
    </div>
-
-
+   <div class="center_form">
    <div class="page-header">
      <h2>Completed Sales</h2>
    </div>
-   <div class="row">
-     <div class="col-sm-4">
-       <div class="panel panel-success">
-         <div class="panel-heading">
-           <h4 class="panel-title">Agents</h4>
-         </div>
-         <div class="panel-body">
-           <div id="list_a"></div>
-         </div>
-        </div>
-        <div class="panel panel-success">
-          <div class="panel-heading">
-            <h4 class="panel-title">Sales count</h4>
-          </div>
-          <div class="panel-body">
-           <div id="list_c"></div>
-          </div>
-        </div>
-      <div>
-
+   <div class="center_from">
+     <h4 class="panel-title">Agents</h4>
+   </div>
+   <div class="center_form">
+     <div id="list_a"></div>
+   </div>
+   <div class="center_form">
+     <h4 class="panel-title">Sales count</h4>
+   </div>
+   <div class="center_form">
+     <div class="panel-body">
+   </div>
+   <div class="center_form">
+     <div id="list_c"></div>
+     </div>
+   </div>
+ </div>
+</div>
   <script type="text/javascript">
-  var agents = sessionStorage.getItem('list_ag');
-  var arr_ag = agents.split(",");
-  var count = sessionStorage.getItem('list_co');
-  var arr_count = count.split(",");
+  function createTable(tableData) {
+  var table = document.createElement('table');
+  var tableBody = document.createElement('tbody');
 
-  /*
-  console.log(arr_ag);
-  console.log(arr_count);
+  tableData.forEach(function(rowData) {
+    var row = document.createElement('tr');
+
+    rowData.forEach(function(cellData) {
+      var cell = document.createElement('td');
+      cell.appendChild(document.createTextNode(cellData));
+      row.appendChild(cell);
+    });
+
+    tableBody.appendChild(row);
+  });
+
+  table.appendChild(tableBody);
+  document.body.appendChild(table);
+  }
+  var agents = sessionStorage.getItem('list_ag');
+  //var arr_ag = agents.split(",");
+  var count = sessionStorage.getItem('list_co');
+<<<<<<< HEAD
+  var arr_count = count.split(",");
   var arr = [arr_ag, arr_count];
-  console.log(arr);
-  */S
+  //createTable(arr);
+
+=======
+  //var arr_count = count.split(",");
+>>>>>>> a17550a8b6bf98d1805b95a5738778a48c5d9566
   document.getElementById("list_a").innerHTML=agents;
   document.getElementById("list_c").innerHTML=count;
   </script>
