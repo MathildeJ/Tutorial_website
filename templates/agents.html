@@ -8,7 +8,7 @@ apiserver:"https://surfly.com/v2/",
 
   <title>Agents</title>
 
-
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='theme.css') }}">
    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap_changed.min.css') }}">
    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-theme.min.css') }}">
@@ -41,31 +41,28 @@ apiserver:"https://surfly.com/v2/",
    <div class="jumbotron">
      <h1>Agents</h1>
    </div>
-
-
+   <div class="center_form">
    <div class="page-header">
      <h2>Completed Sales</h2>
    </div>
-   <div class="row">
-     <div class="col-sm-4">
-       <div class="panel panel-success">
-         <div class="panel-heading">
-           <h4 class="panel-title">Agents</h4>
-         </div>
-         <div class="panel-body">
-           <div id="list_a"></div>
-         </div>
-        </div>
-        <div class="panel panel-success">
-          <div class="panel-heading">
-            <h4 class="panel-title">Sales count</h4>
-          </div>
-          <div class="panel-body">
-           <div id="list_c"></div>
-          </div>
-        </div>
-      <div>
-
+   <div class="center_from">
+     <h4 class="panel-title">Agents</h4>
+   </div>
+   <div class="center_form">
+     <div id="list_a"></div>
+   </div>
+   <div class="center_form">
+     <h4 class="panel-title">Sales count</h4>
+   </div>
+   <div class="center_form">
+     <div class="panel-body">
+   </div>
+   <div class="center_form">
+     <div id="list_c"></div>
+     </div>
+   </div>
+ </div>
+</div>
   <script type="text/javascript">
   function createTable(tableData) {
   var table = document.createElement('table');
