@@ -84,8 +84,10 @@
     <script type="text/javascript">
     var request_logs = new XMLHttpRequest();
     request_logs.open('GET', 'https://api.surfly.com/v2/logs/?api_key=33c092b9d4d6425e817f5140447e43da');
+
     var agents = [];// array containing agents who've made a sale
     var count = [];// array storing the number of sales for each agent
+
     request_logs.onreadystatechange = function () {
         if (this.readyState === 4) {
                 var str_logs = this.responseText;// get the logs
@@ -140,5 +142,4 @@ window.addEventListener('surflycontrolchange', function (event) {
   <div id="list_agents"></div>
   <div id="list_count"></div>
   </body>
-
 </html>
