@@ -9,4 +9,6 @@ def index():
 def agents():
    return render_template('agents.html')
 
-
+@app.route('/chat')
+def chat():
+   return render_template('chat.html')
